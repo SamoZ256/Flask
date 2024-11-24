@@ -8,10 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		D818D8932CF31A1E0087B10D /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = D818D8922CF31A1E0087B10D /* Common.h */; };
+		D89480A52CF31E180011A455 /* Tequila_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89480A42CF31E060011A455 /* Tequila_macOS.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D89480A32CF31E060011A455 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D89480982CF31E060011A455 /* Tequila.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8C146CA2CF202B7002E13FF;
+			remoteInfo = "Tequila-macOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D818D8922CF31A1E0087B10D /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		D89480982CF31E060011A455 /* Tequila.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Tequila.xcodeproj; path = dependencies/Tequila/Tequila.xcodeproj; sourceTree = "<group>"; };
 		D8C146B42CF1F20F002E13FF /* Flask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C146DE2CF230AC002E13FF /* Flask_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flask_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -34,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89480A52CF31E180011A455 /* Tequila_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,12 +60,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D89480972CF31E060011A455 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D89480982CF31E060011A455 /* Tequila.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D89480992CF31E060011A455 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D89480A42CF31E060011A455 /* Tequila_macOS.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D8C146AA2CF1F20F002E13FF = {
 			isa = PBXGroup;
 			children = (
 				D818D8922CF31A1E0087B10D /* Common.h */,
 				D8C146B62CF1F20F002E13FF /* Flask */,
 				D8C146DF2CF230AC002E13FF /* Flask-iOS */,
+				D89480972CF31E060011A455 /* Frameworks */,
 				D8C146B52CF1F20F002E13FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,6 +192,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D8C146B52CF1F20F002E13FF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D89480992CF31E060011A455 /* Products */;
+					ProjectRef = D89480982CF31E060011A455 /* Tequila.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D8C146B32CF1F20F002E13FF /* Flask */,
@@ -169,6 +205,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D89480A42CF31E060011A455 /* Tequila_macOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Tequila_macOS.framework;
+			remoteRef = D89480A32CF31E060011A455 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D8C146B22CF1F20F002E13FF /* Resources */ = {
@@ -208,6 +254,7 @@
 		D8C146BB2CF1F20F002E13FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -218,7 +265,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../dependencies/Tequila";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/dependencies/Tequila";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -239,6 +286,7 @@
 		D8C146BC2CF1F20F002E13FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -250,7 +298,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../dependencies/Tequila";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/dependencies/Tequila";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

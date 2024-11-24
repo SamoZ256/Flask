@@ -10,6 +10,6 @@
 
 #import <AppKit/AppKit.h>
 
-#include "Tequila/Tequila.h"
+#include "Tequila.h"
 
 #endif /* Common_h */
