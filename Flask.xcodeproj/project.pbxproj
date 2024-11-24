@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D818D8932CF31A1E0087B10D /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = D818D8922CF31A1E0087B10D /* Common.h */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		D818D8922CF31A1E0087B10D /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		D8C146B42CF1F20F002E13FF /* Flask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C146DE2CF230AC002E13FF /* Flask_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flask_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -45,6 +50,7 @@
 		D8C146AA2CF1F20F002E13FF = {
 			isa = PBXGroup;
 			children = (
+				D818D8922CF31A1E0087B10D /* Common.h */,
 				D8C146B62CF1F20F002E13FF /* Flask */,
 				D8C146DF2CF230AC002E13FF /* Flask-iOS */,
 				D8C146B52CF1F20F002E13FF /* Products */,
@@ -67,6 +73,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D818D8932CF31A1E0087B10D /* Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +218,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../dependencies/Tequila";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -242,6 +250,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../dependencies/Tequila";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

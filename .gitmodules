@@ -1,0 +1,3 @@
+[submodule "dependencies/Tequila"]
+	path = dependencies/Tequila
+	url = https://github.com/SamoZ256/Tequila.git
