@@ -9,4 +9,8 @@
 
 @implementation NSViewController
 
+- (void)viewDidLoad {
+    ;
+}
+
 @end
