@@ -7,6 +7,8 @@
 
 #import <AppKit/AppKit.h>
 
-int NSApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]) {
+extern int NSApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) {
+    while (true) {}
+    
     return 0;
 }
