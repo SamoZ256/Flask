@@ -23,4 +23,8 @@ static NSColor* __yellowColor = nil;
     return __yellowColor;
 }
 
+- (CGColorRef)CGColor {
+    return tqlColorCGColor(self->obj);
+}
+
 @end
