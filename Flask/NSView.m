@@ -28,17 +28,22 @@ DEFINE_GET_TQL_OBJECT
     return self;
 }
 
-- (void)setWantsLayer:(BOOL)wantsLayer {
-    // Do nothing
-}
-
 - (CALayer*)layer {
     return tqlViewGetLayer(obj);
 }
 
 - (void)setLayer:(CALayer*)layer {
-    // TODO: only do this in debug
-    NSLog(@"error: cannot manually set view's layer");
+    tqlViewSetLayer(self->obj, layer);
+}
+
+- (CALayer*)makeBackingLayer {
+    return [CALayer layer];
+}
+
+- (void)setWantsLayer:(BOOL)wantsLayer {
+    if (wantsLayer) {
+        self.layer = [self makeBackingLayer];
+    }
 }
 
 @end

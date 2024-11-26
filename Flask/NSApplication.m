@@ -27,13 +27,28 @@ void viewControllerLoadView(TqlObject* _Nonnull obj) {
     [obj->host loadView];
 }
 
+Class _Nonnull viewGetLayerClass(TqlObject* _Nonnull obj) {
+    return [[obj->host makeBackingLayer] class];
+}
+
 extern int NSApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) {
+    // Callbacks
+    
+    // Default create
     tqlSetDefaultAppDelegateCreateCallback(defaultAppDelegateCreateCallback);
     tqlSetDefaultViewControllerCreateCallback(defaultViewControllerCreateCallback);
     
+    // Methods
+    
+    // Application
     tqlSetApplicationDidFinishLaunchingCallback(applicationDidFinishLaunching);
+    
+    // View controller
     tqlSetViewControllerViewDidLoadCallback(viewControllerViewDidLoad);
     tqlSetViewControllerLoadViewCallback(viewControllerLoadView);
+    
+    // View
+    tqlSetViewGetLayerClassCallback(viewGetLayerClass);
     
     return tqlApplicarionMain(argc, argv);
 }

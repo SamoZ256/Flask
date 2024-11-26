@@ -32,11 +32,12 @@ DEFINE_GET_TQL_OBJECT
 
 - (void)loadView {
     self.view = [[NSView alloc] init];
-    tqlViewControllerSetView(self->obj, GET_TQL_OBJECT(self.view));
+    //tqlViewControllerSetView(self->obj, GET_TQL_OBJECT(self.view));
 }
 
 - (void)viewDidLoad {
-    //tqlViewControllerSetView(self->obj, GET_TQL_OBJECT(self.view));
+    // TODO: is it okay to set the view here?
+    tqlViewControllerSetView(self->obj, GET_TQL_OBJECT(self.view));
 }
 
 @end
