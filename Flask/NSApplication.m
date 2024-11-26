@@ -14,20 +14,17 @@ id _Nonnull defaultAppDelegateCreateCallback(TqlObject* _Nonnull obj) {
     return appDelegate;
 }
 
-id _Nonnull defaultViewControllerCreateCallback(TqlObject* _Nonnull obj) {
-    // TODO: what should be the class name?
-    id viewController = [[NSClassFromString(@"ViewController") alloc] init];
-    
-    return viewController;
-}
-
 void applicationDidFinishLaunching(TqlObject* _Nonnull obj) {
     // TODO: don't pass NULL
     [obj->host applicationDidFinishLaunching:NULL];
 }
 
-void viewDidLoad(TqlObject* _Nonnull obj) {
+void viewControllerViewDidLoad(TqlObject* _Nonnull obj) {
     [obj->host viewDidLoad];
+}
+
+void viewControllerLoadView(TqlObject* _Nonnull obj) {
+    [obj->host loadView];
 }
 
 extern int NSApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) {
@@ -35,7 +32,8 @@ extern int NSApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) {
     tqlSetDefaultViewControllerCreateCallback(defaultViewControllerCreateCallback);
     
     tqlSetApplicationDidFinishLaunchingCallback(applicationDidFinishLaunching);
-    tqlSetViewDidLoadCallback(viewDidLoad);
+    tqlSetViewControllerViewDidLoadCallback(viewControllerViewDidLoad);
+    tqlSetViewControllerLoadViewCallback(viewControllerLoadView);
     
     return tqlApplicarionMain(argc, argv);
 }
