@@ -46,4 +46,12 @@ DEFINE_GET_TQL_OBJECT
     }
 }
 
+- (NSRect)frame {
+    return tqlViewGetFrame(self->obj);
+}
+
+- (void)setFrame:(NSRect)frame {
+    tqlViewSetFrame(self->obj, frame);
+}
+
 @end
