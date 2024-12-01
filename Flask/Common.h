@@ -8,8 +8,6 @@
 #ifndef Common_h
 #define Common_h
 
-#import <AppKit/AppKit.h>
-
 #include "Tequila.h"
 
 #define DEFINE_GET_TQL_OBJECT \

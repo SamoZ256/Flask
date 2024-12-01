@@ -5,6 +5,8 @@
 //  Created by Samuliak on 24/11/2024.
 //
 
+#import <AppKit/AppKit.h>
+
 #include "Common.h"
 
 static TqlObject* defaultObject = NULL;
@@ -44,10 +46,8 @@ DEFINE_GET_TQL_OBJECT
 
 id _Nonnull defaultViewControllerCreateCallback(TqlObject* _Nonnull obj) {
     defaultObject = obj;
-    
     // TODO: what should be the class name?
     id viewController = [[NSClassFromString(@"ViewController") alloc] init];
-    
     defaultObject = NULL;
     
     return viewController;

@@ -5,6 +5,8 @@
 //  Created by Samuliak on 23/11/2024.
 //
 
+#import <AppKit/AppKit.h>
+
 #include "Common.h"
 
 id _Nonnull defaultAppDelegateCreateCallback(TqlObject* _Nonnull obj) {

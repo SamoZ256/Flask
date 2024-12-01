@@ -5,6 +5,8 @@
 //  Created by Samuliak on 25/11/2024.
 //
 
+#import <AppKit/AppKit.h>
+
 #include "Common.h"
 
 static NSColor* __yellowColor = nil;
