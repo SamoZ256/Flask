@@ -57,3 +57,7 @@ DEFINE_GET_TQL_OBJECT
 }
 
 @end
+
+Class _Nonnull viewGetLayerClass(TqlObject* _Nonnull obj) {
+    return [[obj->host makeBackingLayer] class];
+}

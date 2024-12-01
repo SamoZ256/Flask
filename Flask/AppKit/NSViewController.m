@@ -52,3 +52,11 @@ id _Nonnull defaultViewControllerCreateCallback(TqlObject* _Nonnull obj) {
     
     return viewController;
 }
+
+void viewControllerViewDidLoad(TqlObject* _Nonnull obj) {
+    [obj->host viewDidLoad];
+}
+
+void viewControllerLoadView(TqlObject* _Nonnull obj) {
+    [obj->host loadView];
+}

@@ -17,6 +17,24 @@
 
 #define GET_TQL_OBJECT(obj) [(id)obj getTqlObject]
 
+// Callbacks
+
+// Default create
 id _Nonnull defaultViewControllerCreateCallback(TqlObject* _Nonnull obj);
+id _Nonnull defaultAppDelegateCreateCallback(TqlObject* _Nonnull obj);
+
+// Methods
+
+// Application delegate
+void applicationDidFinishLaunching(TqlObject* _Nonnull obj);
+
+// View controller
+void viewControllerViewDidLoad(TqlObject* _Nonnull obj);
+void viewControllerLoadView(TqlObject* _Nonnull obj);
+
+// View
+Class _Nonnull viewGetLayerClass(TqlObject* _Nonnull obj);
+
+void installCallbacks(void);
 
 #endif /* Common_h */
