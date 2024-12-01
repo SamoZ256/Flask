@@ -15,7 +15,7 @@ void installCallbacks(void) {
     // Methods
     
     // Application delegate
-    tqlSetApplicationDidFinishLaunchingCallback(applicationDidFinishLaunching);
+    tqlSetAppDelegateApplicationDidFinishLaunchingCallback(appDelegateApplicationDidFinishLaunching);
     
     // View controller
     tqlSetViewControllerViewDidLoadCallback(viewControllerViewDidLoad);

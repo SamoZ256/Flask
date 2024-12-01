@@ -26,7 +26,7 @@ id _Nonnull defaultAppDelegateCreateCallback(TqlObject* _Nonnull obj);
 // Methods
 
 // Application delegate
-void applicationDidFinishLaunching(TqlObject* _Nonnull obj);
+void appDelegateApplicationDidFinishLaunching(TqlObject* _Nonnull obj);
 
 // View controller
 void viewControllerViewDidLoad(TqlObject* _Nonnull obj);
