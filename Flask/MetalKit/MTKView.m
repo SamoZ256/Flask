@@ -70,23 +70,30 @@
     }
     
     // Check for drawable size change
-    bool drawableSizeChanged = false;
-    if (self->lastDrawableSize.width != self.layer.frame.size.width || self->lastDrawableSize.height != self.layer.frame.size.height) {
-        self->lastDrawableSize = self.layer.frame.size;
-        drawableSizeChanged = true;
-    }
-    
-    if (drawableSizeChanged) {
-        [self->_delegate mtkView:self drawableSizeWillChange:self.layer.frame.size];
+    CGSize drawableSize = CGSizeMake(self.layer.bounds.size.width * self.layer.contentsScale, self.layer.bounds.size.height * self.layer.contentsScale);
+    if (self->lastDrawableSize.width != drawableSize.width || self->lastDrawableSize.height != drawableSize.height) {
+        self->lastDrawableSize = drawableSize;
+        
+        // Set the drawable size of the layer
+        METAL_LAYER.drawableSize = drawableSize;
+        
+        // Inform the delegate
+        [self->_delegate mtkView:self drawableSizeWillChange:drawableSize];
     }
     
     // Create depth stencil texture if needed
-    if (self->_depthStencilPixelFormat != MTLPixelFormatInvalid && (!self->_depthStencilTexture || drawableSizeChanged || self->_depthStencilTexture.pixelFormat != self->_depthStencilPixelFormat || self->_depthStencilTexture.storageMode != self->_depthStencilStorageMode || self->_depthStencilTexture.usage != self->_depthStencilAttachmentTextureUsage)) {
+    if (self->_depthStencilPixelFormat != MTLPixelFormatInvalid &&
+        (!self->_depthStencilTexture ||
+         self->_depthStencilTexture.width != drawableSize.width ||
+         self->_depthStencilTexture.height != drawableSize.height ||
+         self->_depthStencilTexture.pixelFormat != self->_depthStencilPixelFormat ||
+         self->_depthStencilTexture.storageMode != self->_depthStencilStorageMode ||
+         self->_depthStencilTexture.usage != self->_depthStencilAttachmentTextureUsage)) {
         MTLTextureDescriptor* textureDesc = [MTLTextureDescriptor new];
         textureDesc.textureType = MTLTextureType2D;
         textureDesc.pixelFormat = self->_depthStencilPixelFormat;
-        textureDesc.width = self.layer.frame.size.width;
-        textureDesc.height = self.layer.frame.size.height;
+        textureDesc.width = drawableSize.width;
+        textureDesc.height = drawableSize.height;
         textureDesc.storageMode = self->_depthStencilStorageMode;
         textureDesc.usage = self->_depthStencilAttachmentTextureUsage;
         
