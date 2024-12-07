@@ -9,6 +9,24 @@
 
 #include "Common.h"
 
+static NSApplication* __sharedApplication = nil;
+
+@implementation NSApplication {
+    TqlObject* obj;
+}
+
++ (__kindof NSApplication*)sharedApplication {
+    if (!__sharedApplication) {
+        __sharedApplication = [[NSApplication alloc] init];
+        __sharedApplication->obj = tqlObjectCreate(__sharedApplication);
+        tqlApplicationCreateShared(__sharedApplication->obj);
+    }
+    
+    return __sharedApplication;
+}
+
+@end
+
 id _Nonnull defaultAppDelegateCreateCallback(TqlObject* _Nonnull obj) {
     // TODO: what should be the class name?
     id appDelegate = [[NSClassFromString(@"AppDelegate") alloc] init];
@@ -24,5 +42,5 @@ void appDelegateApplicationDidFinishLaunching(TqlObject* _Nonnull obj) {
 extern int NSApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) {
     installCallbacks();
     
-    return tqlApplicarionMain(argc, argv);
+    return tqlApplicationMain(argc, argv);
 }

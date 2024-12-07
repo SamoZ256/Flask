@@ -19,7 +19,7 @@ static NSColor* __yellowColor = nil;
     if (!__yellowColor) {
         __yellowColor = [[NSColor alloc] init];
         __yellowColor->obj = tqlObjectCreate(__yellowColor);
-        tqlColorYellowCreate(__yellowColor->obj);
+        tqlColorCreateYellow(__yellowColor->obj);
     }
     
     return __yellowColor;
